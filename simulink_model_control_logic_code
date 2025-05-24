@@ -1,0 +1,18 @@
+function message = irrigation_control(moisture, humidity, temperature) 
+% Define threshold values 
+moisture_threshold = 50;  % Ideal soil moisture in % 
+temp_threshold = 35;      % Max temp before reducing irrigation 
+humidity_threshold = 60;  % Ideal humidity range 
+% Control logic 
+if moisture < moisture_threshold 
+if temperature > temp_threshold 
+message = "Water Flow 80% - Increase water flow in high temperature"; 
+elseif humidity < humidity_threshold 
+message = "Water Flow 70% - Moderate flow when humidity is low"; 
+else 
+message = "Water Flow 60% - Normal irrigation"; 
+end 
+else 
+message = "Water Flow 0% - Stop irrigation, moisture is sufficient"; 
+end 
+end
